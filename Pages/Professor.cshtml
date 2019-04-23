@@ -1,0 +1,23 @@
+@page
+@model ProfessorModel
+
+@{
+    ViewData["FirstName"] = "Professor Page";
+}
+
+<h3>Professors</h3>
+<hr />
+<p>List of Professors:</p>
+<form method="post">
+    <select asp-items="Model.ProfessorDropDown" asp-for="professorId">
+        <option value="">-- Select Professor --</option>
+        
+    </select>
+    <hr />
+    <button type="submit" onclick= "@Model.professorId" >Submit</button>
+</form>
+<p>@Model.select</p>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
